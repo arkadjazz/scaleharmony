@@ -1153,6 +1153,9 @@ ADD THIS MODAL MARKUP: place it right before </body>
 
             if (res.ok)
             {
+                if (window.gtag) {
+    gtag('event', 'contact_submitted');
+  }
               status.textContent =
                 "Thanks — message received. I'll respond personally.";
               form.reset();
