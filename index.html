@@ -1,0 +1,1152 @@
+<html><head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Harmony</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      *
+      {
+        font-family: 'Inter', sans-serif;
+      }
+
+      html
+      {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body
+      {
+        background: #0a0a0b;
+        color: #e8e8ea;
+      }
+
+      .progress-bar
+      {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+        width: 0%;
+        z-index: 9999;
+        transition: width 0.1s ease;
+      }
+
+      .nav-link
+      {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after
+      {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: #6366f1;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link.active::after
+      {
+        width: 100%;
+      }
+
+      .nav-link.active
+      {
+        color: #6366f1;
+      }
+
+      .glow-effect
+      {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        .glow-effect {
+          width: 300px;
+          height: 300px;
+          filter: blur(80px);
+        }
+      }
+
+      .noise-texture
+      {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .btn-primary
+      {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover
+      {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+      }
+
+      .btn-secondary
+      {
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover
+      {
+        border-color: #6366f1;
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .section-card
+      {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        transition: all 0.3s ease;
+      }
+
+      .section-card:hover
+      {
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .profile-card
+      {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+      }
+
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 10, 11, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        transition: right 0.3s ease;
+        z-index: 9998;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 9997;
+      }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @media (max-width: 768px) {
+        html {
+          scroll-padding-top: 70px;
+        }
+      }
+    </style>
+    <style data-grapesjs-styles="true">
+      *
+      {
+        box-sizing: border-box;
+      }
+
+      body
+      {
+        margin: 0;
+      }
+
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      *
+      {
+        font-family: Inter, sans-serif;
+        box-sizing: border-box;
+      }
+
+      html
+      {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+
+      body
+      {
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgb(10, 10, 11);
+        color: rgb(232, 232, 234);
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      .progress-bar
+      {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 2px;
+        background-image: linear-gradient(90deg, rgb(99, 102, 241) 0%, rgb(139, 92, 246) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+        width: 0%;
+        z-index: 9999;
+        transition-behavior: normal;
+        transition-duration: 0.1s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: width;
+      }
+
+      .nav-link
+      {
+        position: relative;
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .nav-link::after
+      {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0px;
+        height: 2px;
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgb(99, 102, 241);
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: width;
+      }
+
+      .nav-link.active::after
+      {
+        width: 100%;
+      }
+
+      .nav-link.active
+      {
+        color: rgb(99, 102, 241);
+      }
+
+      .glow-effect
+      {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      .noise-texture
+      {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .btn-primary
+      {
+        background-image: linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(139, 92, 246) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .btn-primary:hover
+      {
+        transform: translateY(-2px);
+        box-shadow: rgba(99, 102, 241, 0.3) 0px 12px 24px;
+      }
+
+      .btn-secondary
+      {
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-top-color: rgba(99, 102, 241, 0.3);
+        border-right-color: rgba(99, 102, 241, 0.3);
+        border-bottom-color: rgba(99, 102, 241, 0.3);
+        border-left-color: rgba(99, 102, 241, 0.3);
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .btn-secondary:hover
+      {
+        border-top-color: rgb(99, 102, 241);
+        border-right-color: rgb(99, 102, 241);
+        border-bottom-color: rgb(99, 102, 241);
+        border-left-color: rgb(99, 102, 241);
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgba(99, 102, 241, 0.05);
+      }
+
+      .section-card
+      {
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgba(255, 255, 255, 0.02);
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-top-color: rgba(255, 255, 255, 0.06);
+        border-right-color: rgba(255, 255, 255, 0.06);
+        border-bottom-color: rgba(255, 255, 255, 0.06);
+        border-left-color: rgba(255, 255, 255, 0.06);
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        backdrop-filter: blur(12px);
+        transition-behavior: normal;
+        transition-duration: 0.3s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
+        transition-property: all;
+      }
+
+      .section-card:hover
+      {
+        border-top-color: rgba(99, 102, 241, 0.3);
+        border-right-color: rgba(99, 102, 241, 0.3);
+        border-bottom-color: rgba(99, 102, 241, 0.3);
+        border-left-color: rgba(99, 102, 241, 0.3);
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgba(255, 255, 255, 0.03);
+      }
+
+      .profile-card
+      {
+        background-image: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: initial;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-top-color: rgba(99, 102, 241, 0.2);
+        border-right-color: rgba(99, 102, 241, 0.2);
+        border-bottom-color: rgba(99, 102, 241, 0.2);
+        border-left-color: rgba(99, 102, 241, 0.2);
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="progressBar" class="progress-bar"></div>
+    <div class="noise-texture"></div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+          <div class="text-lg font-semibold">Menu</div>
+          <button id="closeMobileMenu" class="w-10 h-10 rounded-lg border border-white/10 bg-white/5 text-gray-200 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4">
+          <a href="#why" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Why</a>
+          <a href="#focus" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Focus</a>
+          <a href="#work" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Work</a>
+          <a href="#fit" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Fit</a>
+          <a href="#about" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">About</a>
+          <a href="#" onclick="openContactModal(); return false;" class="text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Contact</a>
+          <div class="pt-4 mt-4 border-t border-white/10">
+            <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="btn-primary px-6 py-3 rounded-lg text-sm font-medium text-white w-full inline-flex items-center justify-center gap-2">
+              Start a conversation
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0b]/80 backdrop-blur-xl border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex items-center justify-between">
+        <div class="text-lg sm:text-xl font-semibold tracking-tight">Scale Harmony</div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
+          <a href="#why" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Why</a>
+          <a href="#focus" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Focus</a>
+          <a href="#work" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Work</a>
+          <a href="#fit" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Fit</a>
+          <a href="#about" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">About</a>
+          <a href="#" onclick="openContactModal(); return false;" class="text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Contact</a>
+        </nav>
+        
+        <!-- Desktop CTA -->
+        <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="hidden lg:inline-flex btn-primary px-5 xl:px-6 py-2.5 rounded-lg text-sm font-medium text-white">
+          Start a conversation
+        </a>
+        
+        <!-- Mobile Menu Button -->
+        <button id="openMobileMenu" class="lg:hidden w-10 h-10 rounded-lg border border-white/10 bg-white/5 text-gray-200 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    <main class="relative z-10">
+      <section id="hero" class="relative pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="glow-effect bg-indigo-600 top-0 left-1/4"></div>
+        <div class="glow-effect bg-purple-600 top-20 right-1/4"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+          <div class="text-center mb-12 sm:mb-16">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+              Customer Success, designed<br class="hidden sm:inline">for the AI era.
+            </h1>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-4xl mx-auto mb-6 sm:mb-8 font-light px-4">
+              Scale Harmony helps B2B SaaS leaders build a Customer Success system that turns signals into action. Improve retention and expansion without bloated teams or process overhead.
+            </p>
+            <div class="inline-block px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/5 border border-white/10 mb-6 sm:mb-8 mx-4">
+              <p class="text-xs sm:text-sm text-gray-300">
+                Led by <span class="font-semibold text-white">Arkady Zapesotsky</span>, a customer growth operator behind multiple global B2B SaaS, cybersecurity, and AI-first platforms.
+              </p>
+            </div>
+            
+            <!-- Credibility Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mb-8 sm:mb-12 px-4">
+              <div class="text-center">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <i class="fa-solid fa-chart-line text-indigo-400 text-xs sm:text-sm"></i>
+                  <div class="text-2xl sm:text-3xl font-bold text-white">$500M+</div>
+                </div>
+                <div class="text-xs text-gray-500">Renewed &amp; expanded revenue</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <i class="fa-solid fa-user-tie text-indigo-400 text-xs sm:text-sm"></i>
+                  <div class="text-2xl sm:text-3xl font-bold text-white">5×</div>
+                </div>
+                <div class="text-xs text-gray-500"><strong>VP of CS</strong><br>Hyper-scaling SaaS leadership</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <i class="fa-solid fa-arrow-trend-up text-indigo-400 text-xs sm:text-sm"></i>
+                  <div class="text-2xl sm:text-3xl font-bold text-white">Up to 160%</div>
+                </div>
+                <div class="text-xs text-gray-500"><strong>NRR</strong><br>Built in complex enterprise environments</div>
+              </div>
+              <div class="text-center">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                  <i class="fa-solid fa-building text-indigo-400 text-xs sm:text-sm"></i>
+                  <div class="text-2xl sm:text-3xl font-bold text-white">Fortune 100</div>
+                </div>
+                <div class="text-xs text-gray-500">+ Global SaaS<br>Clients and operating partners</div>
+              </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 px-4">
+              <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="w-full sm:w-auto btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base font-medium text-white inline-flex items-center justify-center gap-2">
+                Start a conversation
+                <i class="fa-solid fa-arrow-right text-xs sm:text-sm"></i>
+              </a>
+              <a href="#" onclick="openContactModal(); return false;" class="w-full sm:w-auto btn-secondary px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base font-medium text-white inline-flex items-center justify-center gap-2">
+                <i class="fa-regular fa-envelope"></i>
+                Contact
+              </a>
+            </div>
+            <p class="text-xs text-gray-500 italic px-4">Exploratory. No pitch.</p>
+          </div>
+        </div>
+      </section>
+      <section id="why" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+  <div class="max-w-5xl mx-auto">
+    <div class="mb-8 sm:mb-12">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+        <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">Why this exists</span>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
+      <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+            <i class="fa-solid fa-wand-magic-sparkles text-indigo-400 text-lg sm:text-xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-semibold text-white">What AI is automating</h3>
+        </div>
+        <ul class="space-y-3 sm:space-y-4 mb-6">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-circle text-indigo-400 text-xs mt-2"></i>
+            <span class="text-base sm:text-lg text-gray-300 leading-relaxed">Reporting, follow-ups, playbooks</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-circle text-indigo-400 text-xs mt-2"></i>
+            <span class="text-base sm:text-lg text-gray-300 leading-relaxed">Basic health scores and analytics</span>
+          </li>
+        </ul>
+        <p class="text-sm text-gray-500 leading-relaxed">AI is accelerating Customer Success execution.</p>
+      </div>
+      
+      <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+            <i class="fa-solid fa-diagram-project text-indigo-400 text-lg sm:text-xl"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-semibold text-white">What it doesn't fix</h3>
+        </div>
+        <ul class="space-y-3 sm:space-y-4 mb-6">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-circle text-indigo-400 text-xs mt-2"></i>
+            <span class="text-base sm:text-lg text-gray-300 leading-relaxed">Judgment in ambiguous customer moments</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-circle text-indigo-400 text-xs mt-2"></i>
+            <span class="text-base sm:text-lg text-gray-300 leading-relaxed">System design across CS, Sales, Product</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-circle text-indigo-400 text-xs mt-2"></i>
+            <span class="text-base sm:text-lg text-gray-300 leading-relaxed">Turning signals into coordinated action</span>
+          </li>
+        </ul>
+        <p class="text-sm text-gray-500 leading-relaxed">This is where most teams still struggle.</p>
+      </div>
+    </div>
+    
+    <div class="bg-gradient-to-br from-indigo-500/15 to-purple-600/15 border border-indigo-500/30 rounded-2xl p-6 sm:p-8 lg:p-10 mb-6 sm:mb-8 text-center">
+      <div class="flex justify-center mb-6">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+          <i class="fa-solid fa-exclamation-triangle text-indigo-300 text-xl sm:text-2xl"></i>
+        </div>
+      </div>
+      <p class="text-base sm:text-lg text-gray-200 leading-relaxed mb-3">
+        Most companies are optimizing activities instead of building a retention engine.
+      </p>
+      <p class="text-base sm:text-lg text-white font-medium leading-relaxed">
+        Teams stay busy, but renewals remain reactive and expansion inconsistent.
+      </p>
+    </div>
+    
+    <p class="text-base sm:text-lg text-white leading-relaxed font-medium text-center max-w-3xl mx-auto">
+      Scale Harmony exists to help leadership teams design and run Customer Success as a system. Not a collection of roles and tools.
+    </p>
+  </div>
+</section>
+      <section id="focus" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 sm:mb-12">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+              <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">What we focus on</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-4 sm:gap-6">
+            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
+                  <i class="fa-solid fa-magnifying-glass-chart text-indigo-400 text-lg sm:text-xl"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                    Diagnose where retention and expansion break, and why
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
+                  <i class="fa-solid fa-diagram-project text-indigo-400 text-lg sm:text-xl"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                    Design a Customer Success operating system that turns insight into action
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
+              <div class="flex items-start gap-4 sm:gap-6">
+                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
+                  <i class="fa-solid fa-rocket text-indigo-400 text-lg sm:text-xl"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+                    Help leaders execute the shift, with AI as a force multiplier rather than a distraction
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-8 sm:mb-12">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+              <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">How we work</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-6 sm:gap-8">
+            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
+              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <i class="fa-solid fa-gauge-high text-white"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-semibold text-white mb-2 sm:mb-3">Outcome &amp; Retention Accelerator</h3>
+                  <p class="text-gray-400 leading-relaxed text-base sm:text-lg">
+                    A short, focused engagement to diagnose churn and NRR risk, define the operating model, and produce a clear execution and ROI plan.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
+              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <i class="fa-solid fa-user-tie text-white"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-semibold text-white mb-2 sm:mb-3">Fractional CS / CCO Partner</h3>
+                  <p class="text-gray-400 leading-relaxed text-base sm:text-lg">
+                    Hands-on leadership to help design, align, and execute the Customer Success model across teams, metrics, and workflows.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
+              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                  <i class="fa-solid fa-gears text-white"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-semibold text-white mb-2 sm:mb-3">CS Ops &amp; Enablement</h3>
+                  <p class="text-gray-400 leading-relaxed text-base sm:text-lg">
+                    Instrumentation, lifecycle workflows, and AI-enabled playbooks that turn strategy into repeatable execution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="fit" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-5xl mx-auto">
+          <div class="mb-8 sm:mb-12">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+              <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">Fit</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+              <div class="mb-6 sm:mb-8">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4 sm:mb-6">
+                  <i class="fa-solid fa-check text-indigo-400 text-lg sm:text-xl"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">Best for</h3>
+              </div>
+              <ul class="space-y-3 sm:space-y-4">
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-check text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">Post-PMF B2B SaaS companies</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-check text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">Leaders accountable for GRR, NRR, and renewals</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-check text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">Complex, technical, or regulated products</span>
+                </li>
+              </ul>
+            </div>
+            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+              <div class="mb-6 sm:mb-8">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4 sm:mb-6">
+                  <i class="fa-solid fa-xmark text-indigo-400 text-lg sm:text-xl"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">Not for</h3>
+              </div>
+              <ul class="space-y-3 sm:space-y-4">
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-xmark text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">Early-stage startups</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-xmark text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">Teams looking for generic CS playbooks</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fa-solid fa-circle-xmark text-indigo-400 text-sm mt-1.5"></i>
+                  <span class="text-sm sm:text-base text-gray-300 leading-relaxed">"Customer Success as customer happiness" organizations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8 sm:mb-12">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+              <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">About</span>
+            </div>
+          </div>
+          <div class="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+            <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Scale Harmony is led by an operator with experience building and scaling Customer Success in complex B2B SaaS environments.
+            </p>
+            <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
+              The work combines deep understanding of Customer Success and GTM dynamics, with a focus on practical execution, not theory.
+            </p>
+            <p class="text-base sm:text-lg text-white leading-relaxed font-medium">
+              The goal is simple: help leadership teams make better decisions, reduce churn risk, and turn Customer Success into a durable growth engine.
+            </p>
+          </div>
+          <div class="profile-card p-6 sm:p-10 lg:p-12 rounded-2xl backdrop-blur-xl">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 sm:mb-6 border-2 border-indigo-500/30">
+                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg" alt="Arkady Zapesotsky" class="w-full h-full object-cover">
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">Arkady Zapesotsky</h3>
+              <p class="text-base sm:text-lg text-indigo-300 mb-6 sm:mb-8 font-medium">Customer Growth Operator</p>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+                <a href="#" onclick="openContactModal(); return false;" class="btn-secondary px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-sm font-medium text-white inline-flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-envelope"></i>
+                  Contact
+                </a>
+                <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="btn-primary px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-sm font-medium text-white inline-flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-calendar"></i>
+                  Calendly
+                </a>
+                <a href="https://www.linkedin.com/in/arkadyzapesotsky/" target="_blank" class="btn-secondary px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl text-sm font-medium text-white inline-flex items-center justify-center gap-2">
+                  <i class="fa-brands fa-linkedin"></i>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="cta" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="glow-effect bg-indigo-600 bottom-0 left-1/3"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">
+            If you're rethinking how Customer Success should operate in a modern organization, let's compare notes.
+          </h2>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 px-4">
+            <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="w-full sm:w-auto btn-primary px-8 sm:px-10 py-4 sm:py-5 rounded-xl text-base sm:text-lg font-medium text-white inline-flex items-center justify-center gap-3">
+              Start a conversation
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#" onclick="openContactModal(); return false;" class="w-full sm:w-auto btn-secondary px-8 sm:px-10 py-4 sm:py-5 rounded-xl text-base sm:text-lg font-medium text-white inline-flex items-center justify-center gap-3">
+              <i class="fa-regular fa-envelope"></i>
+              Contact
+            </a>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-500 italic">Exploratory. No pitch.</p>
+        </div>
+      </section>
+    </main>
+    <footer id="footer" class="border-t border-white/5 py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
+          <div class="text-center md:text-left">
+            <div class="text-lg sm:text-xl font-semibold mb-2">Scale Harmony</div>
+            <p class="text-xs sm:text-sm text-gray-500">Customer Success, designed for the AI era.</p>
+            <p class="text-xs text-gray-600 mt-1">Led by Arkady Zapesotsky</p>
+          </div>
+          <div class="text-xs sm:text-sm text-gray-600">
+            © <span id="currentYear"></span> Scale Harmony. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Mobile Menu
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      const openMobileMenuBtn = document.getElementById('openMobileMenu');
+      const closeMobileMenuBtn = document.getElementById('closeMobileMenu');
+
+      function openMobileMenuFunc() {
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenuFunc() {
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      openMobileMenuBtn.addEventListener('click', openMobileMenuFunc);
+      closeMobileMenuBtn.addEventListener('click', closeMobileMenuFunc);
+      mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+
+      // Close mobile menu when nav link is clicked
+      document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
+
+      // Progress bar and active section
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= (sectionTop - 100)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const headerOffset = window.innerWidth < 768 ? 70 : 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    </script>
+    <!--
+ADD THIS MODAL MARKUP: place it right before </body>
+(Uses your existing Tailwind + btn-primary/btn-secondary + section-card styles)
+-->
+    <!-- Contact Modal (hidden by default) -->
+    <div id="contactModal" aria-hidden="true" class="fixed inset-0 z-[9999] hidden">
+      <!-- Backdrop -->
+      <div data-modal-close="" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <!-- Dialog -->
+      <div class="relative w-full h-full flex items-center justify-center px-6 py-10">
+        <div role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" aria-describedby="contactModalDesc" class="section-card w-full max-w-2xl rounded-2xl p-8 md:p-10 relative">
+          <!-- Close button --><button type="button" aria-label="Close contact form" data-modal-close="" class="absolute top-5 right-5 w-10 h-10 rounded-xl border border-white/10 bg-white/5 text-gray-200 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button><!-- Header -->
+          <div class="mb-8">
+            <h3 id="contactModalTitle" class="text-3xl font-semibold text-white mb-3 tracking-tight">
+              Start a conversation
+            </h3>
+            <p id="contactModalDesc" class="text-gray-400 leading-relaxed">
+              Short context is helpful. This is exploratory — no pitch.
+            </p>
+          </div><!-- Form -->
+          <!-- Replace the action with your Formspree endpoint when ready:
+           action="https://formspree.io/f/XXXXXXXX"
+      -->
+          <form id="contactForm" method="POST" action="https://formspree.io/f/xbdrbbwl" class="space-y-5">
+            <!-- Honeypot (optional, helps with spam) --><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div><label class="block text-sm text-gray-300 mb-2">Name <span class="text-gray-500">(required)</span></label><input name="name" type="text" required="" autocomplete="name" placeholder="Your name" class="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40 transition">
+              </div>
+              <div><label class="block text-sm text-gray-300 mb-2">Work email
+                  <span class="text-gray-500">(required)</span></label><input name="email" type="email" required="" autocomplete="email" placeholder="name@company.com" class="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40 transition">
+              </div>
+            </div>
+            <div><label class="block text-sm text-gray-300 mb-2">Company <span class="text-gray-500">(optional)</span></label><input name="company" type="text" autocomplete="organization" placeholder="Company name" class="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40 transition">
+            </div>
+            <div><label class="block text-sm text-gray-300 mb-2">What's on your
+                mind? <span class="text-gray-500">(required)</span></label><textarea name="message" required="" rows="5" placeholder="A few lines on the situation, context, or what you're exploring." class="w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/40 transition resize-none"></textarea>
+            </div><!-- Optional: intent selector -->
+            <div class="pt-2">
+              <p class="text-sm text-gray-300 mb-3">Topic <span class="text-gray-500">(optional)</span></p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3"><label class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition cursor-pointer"><input type="radio" name="topic" value="CS operating model" class="accent-indigo-500"><span class="text-sm text-gray-200">CS operating
+                    model</span></label><label class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition cursor-pointer"><input type="radio" name="topic" value="Retention / expansion" class="accent-indigo-500"><span class="text-sm text-gray-200">Retention /
+                    expansion</span></label><label class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition cursor-pointer"><input type="radio" name="topic" value="Fractional leadership" class="accent-indigo-500"><span class="text-sm text-gray-200">Fractional
+                    leadership</span></label><label class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/10 transition cursor-pointer"><input type="radio" name="topic" value="Not sure yet" class="accent-indigo-500"><span class="text-sm text-gray-200">Not sure yet</span></label>
+              </div>
+            </div><!-- Actions -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-4">
+              <button type="button" data-modal-close="" class="btn-secondary px-6 py-3 rounded-xl text-sm font-medium text-white inline-flex items-center justify-center gap-2"><i class="fa-regular fa-circle-xmark"></i>
+                Cancel
+              </button><button type="submit" id="contactSubmitBtn" class="btn-primary px-8 py-3 rounded-xl text-sm font-medium text-white inline-flex items-center justify-center gap-2"><i class="fa-regular fa-paper-plane"></i><span>Send
+                  message</span></button></div><!-- Status -->
+            <p id="contactStatus" class="text-sm text-gray-400 pt-2 hidden"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      // ===== Contact Modal + Formspree (no redirects) =====
+      (function()
+      {
+        const modal = document.getElementById("contactModal");
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("contactStatus");
+        const submitBtn = document.getElementById("contactSubmitBtn");
+
+        // Public helpers
+        window.openContactModal = function()
+        {
+          modal.classList.remove("hidden");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          // focus first input for accessibility
+          const first = form.querySelector('input[name="name"]');
+          if (first) first.focus();
+        };
+
+        window.closeContactModal = function()
+        {
+          modal.classList.add("hidden");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        };
+
+        // Close on backdrop / close buttons
+        modal.addEventListener("click", function(e)
+        {
+          if (e.target && e.target.hasAttribute("data-modal-close"))
+          {
+            window.closeContactModal();
+          }
+        });
+
+        // Close on ESC
+        document.addEventListener("keydown", function(e)
+        {
+          if (e.key === "Escape" && !modal.classList.contains("hidden"))
+          {
+            window.closeContactModal();
+          }
+        });
+
+        // Formspree async submit (stays on page)
+        form.addEventListener("submit", async function(e)
+        {
+          e.preventDefault();
+
+          // UI state
+          status.classList.remove("hidden");
+          status.textContent = "Sending…";
+          submitBtn.disabled = true;
+          submitBtn.classList.add("opacity-80", "cursor-not-allowed");
+
+          try
+          {
+            const formData = new FormData(form);
+            const res = await fetch(form.action,
+            {
+              method: "POST",
+              body: formData,
+              headers:
+              {
+                Accept: "application/json"
+              },
+            });
+
+            if (res.ok)
+            {
+              status.textContent =
+                "Thanks — message received. I'll respond personally.";
+              form.reset();
+
+              // Auto-close after a moment (optional; remove if you prefer it stays open)
+              setTimeout(() => window.closeContactModal(), 1200);
+            }
+            else
+            {
+              status.textContent =
+                "Something went wrong. Please try again, or email directly.";
+            }
+          }
+          catch (err)
+          {
+            status.textContent =
+              "Network error. Please try again, or email directly.";
+          }
+          finally
+          {
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("opacity-80",
+              "cursor-not-allowed");
+          }
+        });
+      })();
+    </script>
+    <!--
+HOW TO WIRE YOUR BUTTONS/LINKS:
+Replace mailto links with:
+  href="#"
+  onclick="openContactModal(); return false;"
+
+Example:
+<a href="#" onclick="openContactModal(); return false;" class="btn-secondary ...">Contact</a>
+-->
+  
+
+</body></html>
