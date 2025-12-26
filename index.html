@@ -1094,6 +1094,9 @@ ADD THIS MODAL MARKUP: place it right before </body>
           modal.classList.remove("hidden");
           modal.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
+            if (window.gtag) {
+    gtag('event', 'contact_opened');
+  }
           // focus first input for accessibility
           const first = form.querySelector('input[name="name"]');
           if (first) first.focus();
