@@ -548,9 +548,9 @@
           </button>
         </div>
         <nav class="flex flex-col gap-4">
-          <a href="#why" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Why</a>
-          <a href="#focus" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Focus</a>
-          <a href="#work" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Work</a>
+          <a href="#problem" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Problem</a>
+          <a href="#offer" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Offer</a>
+          <a href="#methodology" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Methodology</a>
           <a href="#fit" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Fit</a>
           <a href="#about" class="nav-link text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">About</a>
           <a href="#" onclick="openContactModal(); return false;" class="text-base font-medium text-gray-400 hover:text-white cursor-pointer py-2">Contact</a>
@@ -570,9 +570,9 @@
         
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-6 xl:gap-8">
-          <a href="#why" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Why</a>
-          <a href="#focus" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Focus</a>
-          <a href="#work" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Work</a>
+          <a href="#problem" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Problem</a>
+          <a href="#offer" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Offer</a>
+          <a href="#methodology" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Methodology</a>
           <a href="#fit" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Fit</a>
           <a href="#about" class="nav-link text-sm font-medium text-gray-400 hover:text-white cursor-pointer">About</a>
           <a href="#" onclick="openContactModal(); return false;" class="text-sm font-medium text-gray-400 hover:text-white cursor-pointer">Contact</a>
@@ -590,11 +590,11 @@
       </div>
     </header>
     <main class="relative z-10">
-      <section id="hero" class="relative pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-28 lg:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section id="hero" class="relative min-h-screen flex items-center pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div class="glow-effect bg-indigo-600 top-0 left-1/4"></div>
         <div class="glow-effect bg-purple-600 top-20 right-1/4"></div>
-        <div class="max-w-5xl mx-auto relative z-10">
-          <div class="text-center mb-12 sm:mb-16">
+        <div class="w-full max-w-6xl mx-auto relative z-10">
+            <div class="text-center">
             <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight leading-tight bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
   See every at-risk account <br class="hidden sm:inline">before renewal.
 </h1>
@@ -608,34 +608,34 @@
             </div>
             
             <!-- Credibility Stats -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mb-8 sm:mb-12 px-4">
-              <div class="text-center">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                  <i class="fa-solid fa-chart-line text-indigo-400 text-xs sm:text-sm"></i>
-                  <div class="text-2xl sm:text-3xl font-bold text-white">$500M+</div>
+            <div class="grid grid-cols-4 divide-x divide-white/10 max-w-6xl mx-auto mb-6 sm:mb-8 px-2 sm:px-4">
+              <div class="text-center px-2 sm:px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2">
+                  <i class="fa-solid fa-chart-line text-indigo-400 text-[10px] sm:text-sm"></i>
+                  <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white">$500M+</div>
                 </div>
-                <div class="text-xs text-gray-500">Renewed &amp; expanded revenue</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 leading-snug">Renewed &amp; expanded revenue</div>
               </div>
-              <div class="text-center">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                  <i class="fa-solid fa-user-tie text-indigo-400 text-xs sm:text-sm"></i>
-                  <div class="text-2xl sm:text-3xl font-bold text-white">5x</div>
+              <div class="text-center px-2 sm:px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2">
+                  <i class="fa-solid fa-user-tie text-indigo-400 text-[10px] sm:text-sm"></i>
+                  <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white">5x</div>
                 </div>
-                <div class="text-xs text-gray-500">VP of Customer Success</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 leading-snug">VP of Customer Success</div>
               </div>
-              <div class="text-center">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                  <i class="fa-solid fa-arrow-trend-up text-indigo-400 text-xs sm:text-sm"></i>
-                  <div class="text-2xl sm:text-3xl font-bold text-white">Up to 160%</div>
+              <div class="text-center px-2 sm:px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2">
+                  <i class="fa-solid fa-arrow-trend-up text-indigo-400 text-[10px] sm:text-sm"></i>
+                  <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white">Up to 160%</div>
                 </div>
-                <div class="text-xs text-gray-500">NRR in complex enterprise</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 leading-snug">NRR in complex enterprise</div>
               </div>
-              <div class="text-center">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                  <i class="fa-solid fa-building text-indigo-400 text-xs sm:text-sm"></i>
-                  <div class="text-2xl sm:text-3xl font-bold text-white">Fortune 100</div>
+              <div class="text-center px-2 sm:px-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2">
+                  <i class="fa-solid fa-building text-indigo-400 text-[10px] sm:text-sm"></i>
+                  <div class="text-lg sm:text-2xl lg:text-3xl font-bold text-white">Fortune 100</div>
                 </div>
-                <div class="text-xs text-gray-500">+ global SaaS clients</div>
+                <div class="text-[10px] sm:text-xs text-gray-500 leading-snug">+ global SaaS clients</div>
               </div>
             </div>
             
@@ -649,14 +649,13 @@
                 Contact
               </a>
             </div>
-            <p class="text-xs text-gray-500 italic px-4">Exploratory. No pitch.</p>
           </div>
         </div>
       </section>
-      <section id="why" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-  <div class="max-w-5xl mx-auto">
-    <div class="mb-8 sm:mb-12">
-      <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="problem" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-white/[0.02] border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-6 sm:mb-8">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
         <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">The problem</span>
       </div>
     </div>
@@ -708,23 +707,23 @@
     </p>
   </div>
 </section>
-      <section id="focus" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="offer" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">The offer</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">The Retention Engine Sprint</h2>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">The Retention Engine Sprint</h2>
             <p class="text-base sm:text-lg text-gray-300 leading-relaxed mb-3">Three weeks. You finish with a working system on your own data and a plan your board will recognize.</p>
             <p class="text-sm text-gray-500 leading-relaxed">You get:</p>
           </div>
-          <div class="grid grid-cols-1 gap-4 sm:gap-6 mb-6 sm:mb-8">
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
-              <div class="flex items-start gap-4 sm:gap-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div class="section-card p-5 sm:p-6 rounded-2xl group">
+              <div class="flex flex-col items-start gap-3 sm:gap-4">
                 <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
                   <i class="fa-solid fa-magnifying-glass-chart text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <div class="flex-1">
+                <div>
                   <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">A signal audit, mapped to your customer journey.</h3>
                   <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
                     Where churn and expansion signal leaks, stage by stage.
@@ -732,12 +731,12 @@
                 </div>
               </div>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
-              <div class="flex items-start gap-4 sm:gap-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl group">
+              <div class="flex flex-col items-start gap-3 sm:gap-4">
                 <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
                   <i class="fa-solid fa-diagram-project text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <div class="flex-1">
+                <div>
                   <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">A working prototype on your own data.</h3>
                   <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
                     A core AI skills library plus a first CS plug-in that runs on your stack. Yours to keep.
@@ -745,12 +744,12 @@
                 </div>
               </div>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
-              <div class="flex items-start gap-4 sm:gap-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl group">
+              <div class="flex flex-col items-start gap-3 sm:gap-4">
                 <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
                   <i class="fa-solid fa-rocket text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <div class="flex-1">
+                <div>
                   <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">A recommended operating model.</h3>
                   <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
                     How AI and your people split the work, and who owns each signal.
@@ -758,12 +757,12 @@
                 </div>
               </div>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl group">
-              <div class="flex items-start gap-4 sm:gap-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl group">
+              <div class="flex flex-col items-start gap-3 sm:gap-4">
                 <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-all">
                   <i class="fa-solid fa-route text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <div class="flex-1">
+                <div>
                   <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">A 90-day plan to production.</h3>
                   <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
                     A board-ready readout tied to GRR and NRR.
@@ -772,11 +771,11 @@
               </div>
             </div>
           </div>
-          <div class="bg-gradient-to-br from-indigo-500/15 to-purple-600/15 border border-indigo-500/30 rounded-2xl p-6 sm:p-8 lg:p-10 mb-6 sm:mb-8">
+          <div class="bg-gradient-to-br from-indigo-500/15 to-purple-600/15 border border-indigo-500/30 rounded-2xl p-5 sm:p-6 lg:p-8 mb-6 sm:mb-8">
             <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4">Internal-only, built on your stack</h3>
             <p class="text-base sm:text-lg text-gray-300 leading-relaxed">Internal-only, built on the stack you already run. Your team owns every customer decision.</p>
           </div>
-          <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl mb-6 sm:mb-8">
+          <div class="bg-gradient-to-br from-indigo-500/10 to-purple-600/10 border border-indigo-500/30 border-l-4 rounded-2xl p-5 sm:p-6 lg:p-8 mb-6 sm:mb-8">
             <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4">The cost of waiting</h3>
             <div class="space-y-4">
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">Your team pours a year of effort into every renewal: the onboarding, the QBRs, the success plans. But renewals are not won at renewal. They are decided months earlier, in adoption, in signals your QBRs never surface.</p>
@@ -791,16 +790,16 @@
           </div>
         </div>
       </section>
-      <section id="work" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-5xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="work" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-white/[0.02] border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">How we work</span>
             </div>
           </div>
-          <div class="grid grid-cols-1 gap-6 sm:gap-8">
-            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
-              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
+              <div class="flex flex-col items-start gap-4">
                 <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                   <i class="fa-solid fa-scale-balanced text-white"></i>
                 </div>
@@ -810,8 +809,8 @@
                 </div>
               </div>
             </div>
-            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
-              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
+              <div class="flex flex-col items-start gap-4">
                 <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                   <i class="fa-solid fa-shield-halved text-white"></i>
                 </div>
@@ -821,8 +820,8 @@
                 </div>
               </div>
             </div>
-            <div class="section-card p-6 sm:p-10 lg:p-12 rounded-2xl">
-              <div class="flex flex-col sm:flex-row items-start gap-4 mb-4 sm:mb-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
+              <div class="flex flex-col items-start gap-4">
                 <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
                   <i class="fa-solid fa-arrow-trend-up text-white"></i>
                 </div>
@@ -835,53 +834,53 @@
           </div>
         </div>
       </section>
-      <section class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-5xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="methodology" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">The methodology</span>
             </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">The methodology</h2>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 leading-tight">The methodology</h2>
             <p class="text-base sm:text-lg text-gray-300 leading-relaxed">A few principles behind the work:</p>
           </div>
-          <div class="grid grid-cols-1 gap-4 sm:gap-6">
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
               <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Retention is decided in adoption, not at renewal.</h3>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">The signals that predict a renewal show up months earlier, in how the product is used and how the relationship behaves. The renewal call is a lagging indicator.</p>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
               <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Sense, Decide, Act, Relate.</h3>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">Every CS task is one of four jobs. AI should do almost all of the sensing and draft most of the acting. People own the decision and the relationship.</p>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
               <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Summaries are not decisions.</h3>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">Summarizing calls gives you information. Retention needs a ranked, owned risk call, applied the same way across the whole book.</p>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
               <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Score risk on rules you can audit.</h3>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">A useful risk read is multi-dimensional and rule-based, and it names the signal behind every score, so a human can trust it and challenge it.</p>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
               <h3 class="text-lg sm:text-xl font-semibold text-white mb-2">Build the thin layer, buy the commodity.</h3>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed">Buy generic AI. Build only the judgment layer that encodes how your business defines risk. Most failed AI projects build the part they should have bought.</p>
             </div>
           </div>
         </div>
       </section>
-      <section id="fit" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-5xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="fit" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-white/[0.02] border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">Fit</span>
             </div>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
-              <div class="mb-6 sm:mb-8">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4 sm:mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
+              <div class="mb-5 sm:mb-6">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4">
                   <i class="fa-solid fa-check text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">Best for</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-white">Best for</h3>
               </div>
               <ul class="space-y-3 sm:space-y-4">
                 <li class="flex items-start gap-3">
@@ -898,12 +897,12 @@
                 </li>
               </ul>
             </div>
-            <div class="section-card p-6 sm:p-8 lg:p-10 rounded-2xl">
-              <div class="mb-6 sm:mb-8">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4 sm:mb-6">
+            <div class="section-card p-5 sm:p-6 rounded-2xl">
+              <div class="mb-5 sm:mb-6">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 mb-4">
                   <i class="fa-solid fa-xmark text-indigo-400 text-lg sm:text-xl"></i>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">Not for</h3>
+                <h3 class="text-xl sm:text-2xl font-semibold text-white">Not for</h3>
               </div>
               <ul class="space-y-3 sm:space-y-4">
                 <li class="flex items-start gap-3">
@@ -923,14 +922,14 @@
           </div>
         </div>
       </section>
-      <section id="about" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="about" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">About</span>
             </div>
           </div>
-          <div class="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+          <div class="space-y-4 sm:space-y-5 mb-8 sm:mb-10 max-w-4xl">
             <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
               Scale Harmony is led by Arkady Zapesotsky, a five-time VP of CS who has renewed and expanded over $500M across global B2B SaaS, cybersecurity, and AI-first platforms, including Fortune 100.
             </p>
@@ -938,7 +937,7 @@
               The work comes from systems built and run in production. Arkady brings an operator's retention playbook to a small number of SaaS teams.
             </p>
           </div>
-          <div class="profile-card p-6 sm:p-10 lg:p-12 rounded-2xl backdrop-blur-xl">
+          <div class="profile-card p-5 sm:p-8 lg:p-10 rounded-2xl backdrop-blur-xl max-w-4xl mx-auto">
             <div class="flex flex-col items-center text-center">
               <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 sm:mb-6 border-2 border-indigo-500/30">
 <img
@@ -964,16 +963,16 @@
           </div>
         </div>
       </section>
-      <section id="cta" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+      <section id="cta" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative bg-white/[0.02] border-t border-white/5">
         <div class="glow-effect bg-indigo-600 bottom-0 left-1/3"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight">
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-5 leading-tight">
             See where your retention signal is leaking.
           </h2>
-          <p class="text-base sm:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-8">
+          <p class="text-base sm:text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto mb-5 sm:mb-6">
             A 30-minute working session, peer to peer.
           </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4 px-4">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
             <a href="https://calendly.com/arkadjazz/45-minute-meeting" target="_blank" class="w-full sm:w-auto btn-primary px-8 sm:px-10 py-4 sm:py-5 rounded-xl text-base sm:text-lg font-medium text-white inline-flex items-center justify-center gap-3">
               Start a conversation
               <i class="fa-solid fa-arrow-right"></i>
@@ -983,32 +982,31 @@
               Contact
             </a>
           </div>
-          <p class="text-xs sm:text-sm text-gray-500 italic">Exploratory. No pitch.</p>
         </div>
       </section>
-      <section id="faq" class="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-4xl mx-auto">
-          <div class="mb-8 sm:mb-12">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+      <section id="faq" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+          <div class="mb-6 sm:mb-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-4">
               <span class="text-xs font-medium text-indigo-400 uppercase tracking-wider">FAQ</span>
             </div>
           </div>
-          <div class="grid grid-cols-1 gap-4 sm:gap-6">
-            <details class="section-card p-6 sm:p-8 rounded-2xl group">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <details class="section-card p-5 sm:p-6 rounded-2xl group">
               <summary class="text-lg sm:text-xl font-semibold text-white cursor-pointer list-none flex items-center justify-between gap-4">
                 What do you deliver in three weeks?
                 <i class="fa-solid fa-chevron-down text-indigo-400 text-sm group-open:rotate-180 transition-transform"></i>
               </summary>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">A working prototype on your own data (a core AI skills library plus a first CS plug-in), a signal audit across your customer journey, a recommended operating model, and a 90-day plan to production. Your team owns every customer-facing decision.</p>
             </details>
-            <details class="section-card p-6 sm:p-8 rounded-2xl group">
+            <details class="section-card p-5 sm:p-6 rounded-2xl group">
               <summary class="text-lg sm:text-xl font-semibold text-white cursor-pointer list-none flex items-center justify-between gap-4">
                 Is this consulting or software?
                 <i class="fa-solid fa-chevron-down text-indigo-400 text-sm group-open:rotate-180 transition-transform"></i>
               </summary>
               <p class="text-base sm:text-lg text-gray-300 leading-relaxed mt-4">Expert services that leave you with a working system and a plan you own. If you later want it productized and run continuously, that is a separate engagement.</p>
             </details>
-            <details class="section-card p-6 sm:p-8 rounded-2xl group">
+            <details class="section-card p-5 sm:p-6 rounded-2xl group md:col-span-2">
               <summary class="text-lg sm:text-xl font-semibold text-white cursor-pointer list-none flex items-center justify-between gap-4">
                 Can't we just use Gainsight or do it ourselves with AI?
                 <i class="fa-solid fa-chevron-down text-indigo-400 text-sm group-open:rotate-180 transition-transform"></i>
