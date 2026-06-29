@@ -1,0 +1,20 @@
+{
+  "name": "scaleharmony",
+  "version": "1.0.0",
+  "description": "Scale Harmony - Customer Success Advisory for B2B SaaS Leaders",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site - serve index.html'"
+  },
+  "keywords": [
+    "customer-success",
+    "saas",
+    "advisory"
+  ],
+  "author": "Arkady Zapesotsky",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
